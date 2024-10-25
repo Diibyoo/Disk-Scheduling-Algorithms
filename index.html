@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Disk Scheduling Algorithms</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> <!-- Chart.js library -->
+</head>
+<body>
+    <div class="container">
+        <h1>Disk Scheduling Algorithms</h1>
+
+        <label for="algorithms">Choose an Algorithm:</label>
+        <select id="algorithm" onchange="toggleDirection()">
+            <option value="fcfs">FCFS</option>
+            <option value="sstf">SSTF</option>
+            <option value="scan">SCAN</option>
+            <option value="cscan">C-SCAN</option>
+            <option value="look">LOOK</option>
+            <option value="clook">C-LOOK</option>
+        </select>
+
+        <label for="queue">Request Queue (comma-separated):</label>
+        <input type="text" id="queue" placeholder="Enter disk requests e.g., 98, 183, 37">
+
+        <label for="initial">Initial Head Position:</label>
+        <input type="number" id="initial" placeholder="Enter initial head position">
+
+        <label for="cylinders">Number of Tracks:</label>
+        <input type="number" id="cylinders" placeholder="Enter the number of tracks">
+
+        <div id="direction-container" style="display: none;">
+            <label for="direction">Direction (only for SCAN/C-SCAN/LOOK/C-LOOK):</label>
+            <select id="direction">
+                <option value="up">Higher Direction</option>
+                <option value="down">Lower Direction</option>
+            </select>
+        </div>
+
+        <button onclick="schedule()">Submit</button>
+
+        <h2>Result (Seek Time):</h2>
+        <div id="results"></div>
+
+        <!-- Canvas for chart -->
+        <h2>Seek Time Visualization</h2>
+        <canvas id="seekChart"></canvas>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; Operating Systems Mini Project [Group-1]</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
